@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// int: 'xxxyyy' 상수로 나타냄
+// int: stud 'xxxyyy' 상수로 나타냄
 int routeWayOut(char* map[], int xy, int openedDoors){
     
 
