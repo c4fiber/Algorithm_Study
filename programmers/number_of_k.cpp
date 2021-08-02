@@ -16,7 +16,6 @@ vector<int> solution(vector<int> array, vector<vector<int>> commands) {
         int end = command[1];
         int index = command[2] - 1;
 
-        temp.clear();
         temp.assign(array.begin() + begin, array.begin() + end);
 
         // debug
