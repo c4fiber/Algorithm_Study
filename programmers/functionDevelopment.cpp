@@ -6,7 +6,7 @@ using namespace std;
 
 vector<int> solution(vector<int> progresses, vector<int> speeds) {
     vector<int> releases;
-    int completedProgressesNumber;
+    int completedProgressesNumberByRelease;
     int spendDays = 0;
     int isReleased = -1;
 
@@ -14,18 +14,18 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
         if (progresses[i] == isReleased) continue;
 
         spendDays = (99 - progresses[i]) / speeds[i] + 1;
-        completedProgressesNumber = 1;
+        completedProgressesNumberByRelease = 1;
 
         for (int j = i + 1; j < progresses.size(); j++) {  // 같은날 배포 가능한 작업 찾기
             if (progresses[j] + speeds[j] * spendDays >= 100) {
-                completedProgressesNumber += 1;
+                completedProgressesNumberByRelease += 1;
                 progresses[j] = isReleased;
             } else { // 같은날 배포 불가능하면 다음 release로 넘어감
                 break;
             }
         }
 
-        releases.push_back(completedProgressesNumber);
+        releases.push_back(completedProgressesNumberByRelease);
     }
 
     return releases;
