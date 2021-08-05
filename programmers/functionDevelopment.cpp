@@ -5,9 +5,9 @@
 using namespace std;
 
 vector<int> solution(vector<int> progresses, vector<int> speeds) {
-    vector<int> answer;
+    vector<int> releases;
     int completedProgressesNumber;
-    int spendDays;
+    int spendDays = 0;
     int isReleased = -1;
 
     for (int i = 0; i < progresses.size(); i++) {
@@ -20,15 +20,15 @@ vector<int> solution(vector<int> progresses, vector<int> speeds) {
             if (progresses[j] + speeds[j] * spendDays >= 100) {
                 completedProgressesNumber += 1;
                 progresses[j] = isReleased;
-            } else {
+            } else { // 같은날 배포 불가능하면 다음 release로 넘어감
                 break;
             }
         }
 
-        answer.push_back(completedProgressesNumber);
+        releases.push_back(completedProgressesNumber);
     }
 
-    return answer;
+    return releases;
 }
 
 int main() {
