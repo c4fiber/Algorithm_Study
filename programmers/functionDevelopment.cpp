@@ -7,7 +7,7 @@ using namespace std;
 vector<int> solution(vector<int> progresses, vector<int> speeds) {
     vector<int> releases;
     int completedProgressesNumberByRelease;
-    int spendDays = 0;
+    int spendDays;
     int isReleased = -1;
 
     for (int i = 0; i < progresses.size(); i++) {
