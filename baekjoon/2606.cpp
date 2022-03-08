@@ -1,51 +1,47 @@
-#include <iostream>
+// 2606 바이러스
+// Basic DFS
+#include <cstdio>
 using namespace std;
 #include <queue>
 
 #define MAX_OF_NODES 101
 
-int N, M;
-int visited[MAX_OF_NODES];
-int graph[MAX_OF_NODES][MAX_OF_NODES];
+int N, M; // Nodes, Pairs
+bool visited[MAX_OF_NODES];
+bool edge[MAX_OF_NODES][MAX_OF_NODES];
 queue<int> q;
-int count = 0;
+int infectedComputers = 0;
 
 void dfs(){
     q.push(1);
-    visited[1] = 1;
+    visited[1] = true;
     while(!q.empty()){
         int c = q.front();
         for(int i=1; i<=N; i++){
-            if (graph[c][i] == 1 && visited[i] == 0){
+            if (edge[c][i] == true && visited[i] == false){
                 q.push(i);
-                visited[i] = 1;
-                count++;
+                visited[i] = true;
+                infectedComputers++;
             }
         }
         q.pop();
     }
 }
 
-void init(){
-    cin.tie(NULL);
-    ios_base::sync_with_stdio(false);
-}
-
-void input(){
-    cin >> N;
-    cin >> M;
+void inputExamples(){
+    scanf("%d", &N);
+    scanf("%d", &M);
     for(int i=0; i<M; i++){
         int a, b;
-        cin >> a >> b;
-        graph[a][b] = graph[b][a] = 1;
+        scanf("%d %d", &a, &b);
+        edge[a][b] = edge[b][a] = true;
     }
 }
 
 int main() {
-    init();
-    input();
+    inputExamples();
     dfs();
 
-    cout << count << "\n";
+    printf("%d\n", infectedComputers);
     return 0;
 }
