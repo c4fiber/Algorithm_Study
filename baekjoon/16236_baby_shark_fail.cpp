@@ -12,7 +12,7 @@ struct target{
 int dx[4] = {1, -1, 0, 0};
 int dy[4] = {0, 0, 1, -1};
 
-int n, cnt;
+int n, cnt, shark;
 int grid[21][21];
 int fish[21][21];
 bool visited[21][21];
@@ -45,9 +45,10 @@ void hunt(){
         if(prey >= shark){
             prey = 0;
             shark++;
+            if(!fishExist(shark)) return; // #1 먹을수 있는 물고기가 없다면 중단
         } 
 
-        if(!fishExist(shark)) return; // #1 먹을수 있는 물고기가 없다면 중단
+        
 
         for(int i=0; i<4; i++){
             int nx = x + dx[i];
@@ -79,7 +80,7 @@ void input() {
             cin >> fish[i][j];
             if(fish[i][j] == 9){
                 fish[i][j] = 0;
-                q.push({2,i,j});
+                q.push({i,j});
             }
         }
     }
