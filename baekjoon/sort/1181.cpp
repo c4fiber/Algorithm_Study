@@ -10,11 +10,11 @@ vector<string> words;
 
 
 bool compare(const string a, const string b){
-    if(a.length() != b.length()){ // 길이가 같다면 각 글자를 비교한다.
+    if(a.length() != b.length()){ // #2
         return a.length() < b.length();
     }else {
-        for(int i=0; i<a.length(); i++){
-            if(a[i] != b[i]) {
+        for(int i=0; i<a.length(); i++){ // #1
+            if(a[i] != b[i]) { // #3
                 return a[i] < b[i];
             }
         }
@@ -37,15 +37,15 @@ int main() {
 	
     // Checklist
     // 1. 모든 글자를 비교하는가? (인덱스 범위 0 ~ string.length()-1)
-    // 1. 길이가 오름차순인가? 
-    // 2. 길이가 같다면 알파벳이 오름차순인가?
-    // 3. 중복을 제거하는가?
+    // 2. 길이가 오름차순인가? 
+    // 3. 길이가 같다면 알파벳이 오름차순인가?
+    // 4. 중복을 제거하는가?
 
     sort(words.begin(), words.end(), compare);
 
     string before = "";
     for(auto s : words){
-        if( s == before) {
+        if( s == before) { // #4
             continue;
         }else {
             cout << s << '\n';
