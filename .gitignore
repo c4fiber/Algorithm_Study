@@ -1,3 +1,5 @@
-
+.idea
 a.out.exe
 .vscode
+.pyc
+venv/
