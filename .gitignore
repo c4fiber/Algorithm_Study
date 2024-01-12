@@ -4,5 +4,4 @@
 venv/
 
 # executable
-a.out.exe
-a.out
+*.exe
