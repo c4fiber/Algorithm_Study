@@ -2,14 +2,17 @@
 #include <iostream>
 using namespace std;
 
-int n;
+
+// 우 좌 위 아래 순
+
+int N, K;
+
 
 
 int main() {
 	fastio;
 
+    cin >> N >> K;
 
 
-
-    return 0;
 }
