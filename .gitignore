@@ -1,5 +1,8 @@
 .idea
-a.out.exe
 .vscode
 .pyc
 venv/
+
+# executable
+a.out.exe
+a.out
